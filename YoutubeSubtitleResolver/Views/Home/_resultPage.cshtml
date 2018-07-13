@@ -15,13 +15,17 @@
         </h1>
     </div>
 
-    @if (Model.Words != null)
+    @if (Model.Words == null || !Model.Words.Any())
     {
-        foreach (var item in Model.Words)
-        {
-            <div class="col-sm-3">
-                <p><a target="_blank" href="@item.TranslateUrl">@item.Value: @item.Count</a></p>
-            </div>
-        }
+        <div class="col-md-12">Subtitle NOT FOUND</div>
+        <br/>
+        <br/>
+        return;
+    }
+    @foreach (var item in Model.Words)
+    {
+        <div class="col-sm-3">
+            <p><a target="_blank" href="@item.TranslateUrl">@item.Value: @item.Count</a></p>
+        </div>
     }
 </div>

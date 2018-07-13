@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Xml;
 using HtmlAgilityPack;
-using LearnLanguage.Models;
+using YoutubeSubtitleResolver.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LearnLanguage.Controllers
+namespace YoutubeSubtitleResolver.Controllers
 {
     public class HomeController : Controller
     {
@@ -78,7 +79,17 @@ namespace LearnLanguage.Controllers
 
         private static IEnumerable<string> PrepareWord(string text)
         {
-            return HttpUtility.HtmlDecode(text)?.Split(" ")
+            return HttpUtility.HtmlDecode(text)?
+                .Replace("\n", " ")
+                .Replace(",", "")
+                .Replace(".", "")
+                .Replace("?", "")
+                .Replace("!", "")
+                .Replace("(", "")
+                .Replace(")", "")
+                .Replace("/", "")
+                .Replace(Environment.NewLine, " ")
+                .Split(" ")
                 .Where(s => !string.IsNullOrWhiteSpace(s))
                 .Where(s => s.Length > 1)
                 .Where(s => !int.TryParse(s, out _));

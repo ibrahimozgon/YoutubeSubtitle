@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using HtmlAgilityPack;
 
-namespace LearnLanguage.Models
+namespace YoutubeSubtitleResolver.Models
 {
     public class ResponseModel
     {

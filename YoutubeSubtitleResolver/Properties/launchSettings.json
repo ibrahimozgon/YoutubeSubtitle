@@ -14,7 +14,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "LearnLanguage": {
+    "YoutubeSubtitleResolver": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
