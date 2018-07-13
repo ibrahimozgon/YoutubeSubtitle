@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model ResponseModel
+@if (Model == null)
+{
+    <partial name="_indexPage" />
+    return;
+}
+<partial name="_resultPage" model="@Model" />
+

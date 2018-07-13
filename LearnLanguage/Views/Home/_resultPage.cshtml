@@ -1,0 +1,27 @@
+﻿@model ResponseModel
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>
+            Video
+        </h1>
+        <iframe width="560" height="315" src="@Model.Url" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h1>
+            All Words
+        </h1>
+    </div>
+
+    @if (Model.Words != null)
+    {
+        foreach (var item in Model.Words)
+        {
+            <div class="col-sm-3">
+                <p><a target="_blank" href="@item.TranslateUrl">@item.Value: @item.Count</a></p>
+            </div>
+        }
+    }
+</div>
